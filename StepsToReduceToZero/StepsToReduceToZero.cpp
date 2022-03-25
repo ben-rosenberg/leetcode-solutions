@@ -33,6 +33,38 @@ public:
 
         return counter;
     }
+
+    /**
+     * @brief Same challenge as the previous method, but apparently the while
+     * loop in this case is SIGNIFICANTLY faster. That or I found a bug on Leetcode.
+     * 
+     * Stats for this submission from leetcode.com:
+     * 
+     * Runtime: 0 ms, faster than 100.00% of C++ online submissions for Number of Steps to Reduce a Number to Zero.
+     * Memory Usage: 5.9 MB, less than 74.55% of C++ online submissions for Number of Steps to Reduce a Number to Zero.
+     * 
+     * @param num A positive integer
+     * @return int Number of steps to reduce to 0
+     */
+    int numberOfSteps2(int num)
+    {
+        int counter = 0;
+
+        while (num > 0)
+        {
+            if (num & 1)
+            {
+                num -= 1;
+                ++counter;
+                continue;
+            }
+
+            num >>= 1;
+            ++counter;
+        }
+
+        return counter;
+    }
 };
 
 int main()
@@ -46,7 +78,7 @@ int main()
     int c = 123;
     int cExpected = 12;
 
-    std::cout << (s.numberOfSteps(a) == aExpected) << '\n';
-    std::cout << (s.numberOfSteps(b) == bExpected) << '\n';
-    std::cout << (s.numberOfSteps(c) == cExpected) << '\n';
+    std::cout << (s.numberOfSteps2(a) == aExpected) << '\n';
+    std::cout << (s.numberOfSteps2(b) == bExpected) << '\n';
+    std::cout << (s.numberOfSteps2(c) == cExpected) << '\n';
 }

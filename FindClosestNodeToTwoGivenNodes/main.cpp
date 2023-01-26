@@ -30,6 +30,9 @@ public:
      * with the shortest distance from each node--as defined in the problem
      * statement--is returned.
      * 
+     * Faster than 95% of submissions.
+     * Uses less memory than 68.56% of submissions.
+     * 
      * @param edges An edge exists from node i to node edges[i]. If edges[i] == -1,
      * node i has no outgoing edge
      * @param node1 
